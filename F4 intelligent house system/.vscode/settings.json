@@ -1,0 +1,21 @@
+{
+    "files.associations": {
+        "buzzer.h": "c",
+        "stm32f4xx.h": "c",
+        "main.h": "c",
+        "dth11.h": "c",
+        "lightsensor.h": "c",
+        "stdint.h": "c",
+        "usart.h": "c",
+        "atcommand.h": "c",
+        "stdio.h": "c",
+        "mqttclient.h": "c",
+        "mqtt_task.h": "c",
+        "stm32f4xx_hal.h": "c",
+        "cmsis_os.h": "c",
+        "freertosconfig.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "disabled",
+    "workbench.colorTheme": "Default Dark Modern",
+    "workbench.preferredDarkColorTheme": "Quiet Light"
+}

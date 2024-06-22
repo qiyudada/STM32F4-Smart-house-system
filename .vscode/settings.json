@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "buzzer.h": "c",
-        "stm32f4xx.h": "c",
-        "main.h": "c"
-    }
-}
