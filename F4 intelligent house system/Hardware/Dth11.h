@@ -25,7 +25,7 @@ uint8_t DHT11_Read_Bit(void);
 void DHT11_Init(void);
 int DHT11_Read_Data(int* temp , int* humi);
 void DHT11_Test(void);
-//void DHT11_MQTT_Task(void *para);
+void DHT11_MQTT_Task(void *para);
 void DHT11_PinCfgAsOutput(void);
 void DHT11_PinCfgAsInput(void);
 void DHT11_Start(void);

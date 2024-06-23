@@ -77,7 +77,7 @@ I (../Hardware/Lightsensor.h)(0x6673EDBB)
 I (../Core/Inc/adc.h)(0x666C6A25)
 I (../Core/Inc/usart.h)(0x666AEF19)
 I (../Core/Inc/tim.h)(0x6673A663)
-I (../Hardware/Dth11.h)(0x6676D2AA)
+I (../Hardware/Dth11.h)(0x6677D841)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h)(0x666AEEEF)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h)(0x666AEEEF)
 I (../Core/Inc/spi.h)(0x66716EBC)
@@ -160,8 +160,8 @@ I (../Hardware/Lightsensor.h)(0x6673EDBB)
 I (../Core/Inc/adc.h)(0x666C6A25)
 I (../Core/Inc/usart.h)(0x666AEF19)
 I (../Core/Inc/tim.h)(0x6673A663)
-I (../Hardware/Dth11.h)(0x6676D2AA)
-F (../Core/Src/freertos.c)(0x66763D3A)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../AT -I ../Hal_Uart -I ../MQTT/Common -I ../MQTT/MQTT -I ../MQTT/MQTTClient -I ../MQTT/Network -I ../MQTT/Platform/FreeRTOS -I ../Hardware -I ../ModuleDriver -I ../MQTT_Assignment-I.\RTE\_F4_intelligent_house_system-I"D:\Keil\ARM Start\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include"-I"D:\Keil\ARM Start\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include"-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F40_41xxx -DUSE_HAL_DRIVER -DSTM32F407xx-o "f4 intelligent house system\freertos.o" --omf_browse "f4 intelligent house system\freertos.crf" --depend "f4 intelligent house system\freertos.d")
+I (../Hardware/Dth11.h)(0x6677D841)
+F (../Core/Src/freertos.c)(0x6677D949)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../AT -I ../Hal_Uart -I ../MQTT/Common -I ../MQTT/MQTT -I ../MQTT/MQTTClient -I ../MQTT/Network -I ../MQTT/Platform/FreeRTOS -I ../Hardware -I ../ModuleDriver -I ../MQTT_Assignment-I.\RTE\_F4_intelligent_house_system-I"D:\Keil\ARM Start\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include"-I"D:\Keil\ARM Start\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include"-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F40_41xxx -DUSE_HAL_DRIVER -DSTM32F407xx-o "f4 intelligent house system\freertos.o" --omf_browse "f4 intelligent house system\freertos.crf" --depend "f4 intelligent house system\freertos.d")
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x6675928A)
 I (D:\Keil\ARM Start\ARM\ARMCC\include\stddef.h)(0x588B8344)
 I (D:\Keil\ARM Start\ARM\ARMCC\include\stdint.h)(0x588B8344)
@@ -238,10 +238,10 @@ I (../Hardware/Lightsensor.h)(0x6673EDBB)
 I (../Core/Inc/adc.h)(0x666C6A25)
 I (../Core/Inc/usart.h)(0x666AEF19)
 I (../Core/Inc/tim.h)(0x6673A663)
-I (../Hardware/Dth11.h)(0x6676D2AA)
+I (../Hardware/Dth11.h)(0x6677D841)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h)(0x666AEEEF)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h)(0x666AEEEF)
-I (../MQTT_Assignment/MQTT_Task.h)(0x6676C8D8)
+I (../MQTT_Assignment/MQTT_Task.h)(0x6677D949)
 F (../Core/Src/adc.c)(0x666C6A25)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../AT -I ../Hal_Uart -I ../MQTT/Common -I ../MQTT/MQTT -I ../MQTT/MQTTClient -I ../MQTT/Network -I ../MQTT/Platform/FreeRTOS -I ../Hardware -I ../ModuleDriver -I ../MQTT_Assignment-I.\RTE\_F4_intelligent_house_system-I"D:\Keil\ARM Start\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include"-I"D:\Keil\ARM Start\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include"-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F40_41xxx -DUSE_HAL_DRIVER -DSTM32F407xx-o "f4 intelligent house system\adc.o" --omf_browse "f4 intelligent house system\adc.crf" --depend "f4 intelligent house system\adc.d")
 I (../Core/Inc/adc.h)(0x666C6A25)
 I (../Core/Inc/main.h)(0x6672B4C0)
@@ -319,7 +319,7 @@ I (../MQTT/Common/mqtt_log.h)(0x66667305)
 I (../Hardware/Lightsensor.h)(0x6673EDBB)
 I (../Core/Inc/usart.h)(0x666AEF19)
 I (../Core/Inc/tim.h)(0x6673A663)
-I (../Hardware/Dth11.h)(0x6676D2AA)
+I (../Hardware/Dth11.h)(0x6677D841)
 F (../Core/Src/spi.c)(0x66716EBC)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../AT -I ../Hal_Uart -I ../MQTT/Common -I ../MQTT/MQTT -I ../MQTT/MQTTClient -I ../MQTT/Network -I ../MQTT/Platform/FreeRTOS -I ../Hardware -I ../ModuleDriver -I ../MQTT_Assignment-I.\RTE\_F4_intelligent_house_system-I"D:\Keil\ARM Start\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include"-I"D:\Keil\ARM Start\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include"-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F40_41xxx -DUSE_HAL_DRIVER -DSTM32F407xx-o "f4 intelligent house system\spi.o" --omf_browse "f4 intelligent house system\spi.crf" --depend "f4 intelligent house system\spi.d")
 I (../Core/Inc/spi.h)(0x66716EBC)
 I (../Core/Inc/main.h)(0x6672B4C0)
@@ -398,7 +398,7 @@ I (../Hardware/Lightsensor.h)(0x6673EDBB)
 I (../Core/Inc/adc.h)(0x666C6A25)
 I (../Core/Inc/usart.h)(0x666AEF19)
 I (../Core/Inc/tim.h)(0x6673A663)
-I (../Hardware/Dth11.h)(0x6676D2AA)
+I (../Hardware/Dth11.h)(0x6677D841)
 F (../Core/Src/tim.c)(0x6676CD65)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../AT -I ../Hal_Uart -I ../MQTT/Common -I ../MQTT/MQTT -I ../MQTT/MQTTClient -I ../MQTT/Network -I ../MQTT/Platform/FreeRTOS -I ../Hardware -I ../ModuleDriver -I ../MQTT_Assignment-I.\RTE\_F4_intelligent_house_system-I"D:\Keil\ARM Start\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include"-I"D:\Keil\ARM Start\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include"-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F40_41xxx -DUSE_HAL_DRIVER -DSTM32F407xx-o "f4 intelligent house system\tim.o" --omf_browse "f4 intelligent house system\tim.crf" --depend "f4 intelligent house system\tim.d")
 I (../Core/Inc/tim.h)(0x6673A663)
 I (../Core/Inc/main.h)(0x6672B4C0)
@@ -476,7 +476,7 @@ I (../MQTT/Common/mqtt_log.h)(0x66667305)
 I (../Hardware/Lightsensor.h)(0x6673EDBB)
 I (../Core/Inc/adc.h)(0x666C6A25)
 I (../Core/Inc/usart.h)(0x666AEF19)
-I (../Hardware/Dth11.h)(0x6676D2AA)
+I (../Hardware/Dth11.h)(0x6677D841)
 F (../Core/Src/usart.c)(0x666AEF19)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../AT -I ../Hal_Uart -I ../MQTT/Common -I ../MQTT/MQTT -I ../MQTT/MQTTClient -I ../MQTT/Network -I ../MQTT/Platform/FreeRTOS -I ../Hardware -I ../ModuleDriver -I ../MQTT_Assignment-I.\RTE\_F4_intelligent_house_system-I"D:\Keil\ARM Start\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include"-I"D:\Keil\ARM Start\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include"-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F40_41xxx -DUSE_HAL_DRIVER -DSTM32F407xx-o "f4 intelligent house system\usart.o" --omf_browse "f4 intelligent house system\usart.crf" --depend "f4 intelligent house system\usart.d")
 I (../Core/Inc/usart.h)(0x666AEF19)
 I (../Core/Inc/main.h)(0x6672B4C0)
@@ -554,7 +554,7 @@ I (../MQTT/Common/mqtt_log.h)(0x66667305)
 I (../Hardware/Lightsensor.h)(0x6673EDBB)
 I (../Core/Inc/adc.h)(0x666C6A25)
 I (../Core/Inc/tim.h)(0x6673A663)
-I (../Hardware/Dth11.h)(0x6676D2AA)
+I (../Hardware/Dth11.h)(0x6677D841)
 F (../Core/Src/stm32f4xx_it.c)(0x66759257)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../AT -I ../Hal_Uart -I ../MQTT/Common -I ../MQTT/MQTT -I ../MQTT/MQTTClient -I ../MQTT/Network -I ../MQTT/Platform/FreeRTOS -I ../Hardware -I ../ModuleDriver -I ../MQTT_Assignment-I.\RTE\_F4_intelligent_house_system-I"D:\Keil\ARM Start\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include"-I"D:\Keil\ARM Start\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include"-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F40_41xxx -DUSE_HAL_DRIVER -DSTM32F407xx-o "f4 intelligent house system\stm32f4xx_it.o" --omf_browse "f4 intelligent house system\stm32f4xx_it.crf" --depend "f4 intelligent house system\stm32f4xx_it.d")
 I (../Core/Inc/main.h)(0x6672B4C0)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x666AEEEC)
@@ -632,7 +632,7 @@ I (../Hardware/Lightsensor.h)(0x6673EDBB)
 I (../Core/Inc/adc.h)(0x666C6A25)
 I (../Core/Inc/usart.h)(0x666AEF19)
 I (../Core/Inc/tim.h)(0x6673A663)
-I (../Hardware/Dth11.h)(0x6676D2AA)
+I (../Hardware/Dth11.h)(0x6677D841)
 I (../Core/Inc/stm32f4xx_it.h)(0x66759196)
 F (../Core/Src/stm32f4xx_hal_msp.c)(0x666AEF19)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../AT -I ../Hal_Uart -I ../MQTT/Common -I ../MQTT/MQTT -I ../MQTT/MQTTClient -I ../MQTT/Network -I ../MQTT/Platform/FreeRTOS -I ../Hardware -I ../ModuleDriver -I ../MQTT_Assignment-I.\RTE\_F4_intelligent_house_system-I"D:\Keil\ARM Start\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include"-I"D:\Keil\ARM Start\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include"-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F40_41xxx -DUSE_HAL_DRIVER -DSTM32F407xx-o "f4 intelligent house system\stm32f4xx_hal_msp.o" --omf_browse "f4 intelligent house system\stm32f4xx_hal_msp.crf" --depend "f4 intelligent house system\stm32f4xx_hal_msp.d")
 I (../Core/Inc/main.h)(0x6672B4C0)
@@ -711,7 +711,7 @@ I (../Hardware/Lightsensor.h)(0x6673EDBB)
 I (../Core/Inc/adc.h)(0x666C6A25)
 I (../Core/Inc/usart.h)(0x666AEF19)
 I (../Core/Inc/tim.h)(0x6673A663)
-I (../Hardware/Dth11.h)(0x6676D2AA)
+I (../Hardware/Dth11.h)(0x6677D841)
 F (../Core/Src/stm32f4xx_hal_timebase_tim.c)(0x666AEF1A)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../AT -I ../Hal_Uart -I ../MQTT/Common -I ../MQTT/MQTT -I ../MQTT/MQTTClient -I ../MQTT/Network -I ../MQTT/Platform/FreeRTOS -I ../Hardware -I ../ModuleDriver -I ../MQTT_Assignment-I.\RTE\_F4_intelligent_house_system-I"D:\Keil\ARM Start\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include"-I"D:\Keil\ARM Start\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include"-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F40_41xxx -DUSE_HAL_DRIVER -DSTM32F407xx-o "f4 intelligent house system\stm32f4xx_hal_timebase_tim.o" --omf_browse "f4 intelligent house system\stm32f4xx_hal_timebase_tim.crf" --depend "f4 intelligent house system\stm32f4xx_hal_timebase_tim.d")
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x666AEEEC)
 I (../Core/Inc/stm32f4xx_hal_conf.h)(0x66756C73)
@@ -1702,7 +1702,7 @@ I (../MQTT/Common/mqtt_log.h)(0x66667305)
 I (../Hardware/Lightsensor.h)(0x6673EDBB)
 I (../Core/Inc/adc.h)(0x666C6A25)
 I (../Core/Inc/tim.h)(0x6673A663)
-I (../Hardware/Dth11.h)(0x6676D2AA)
+I (../Hardware/Dth11.h)(0x6677D841)
 F (..\ModuleDriver\ring_buffer.c)(0x66667305)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../AT -I ../Hal_Uart -I ../MQTT/Common -I ../MQTT/MQTT -I ../MQTT/MQTTClient -I ../MQTT/Network -I ../MQTT/Platform/FreeRTOS -I ../Hardware -I ../ModuleDriver -I ../MQTT_Assignment-I.\RTE\_F4_intelligent_house_system-I"D:\Keil\ARM Start\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include"-I"D:\Keil\ARM Start\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include"-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F40_41xxx -DUSE_HAL_DRIVER -DSTM32F407xx-o "f4 intelligent house system\ring_buffer.o" --omf_browse "f4 intelligent house system\ring_buffer.crf" --depend "f4 intelligent house system\ring_buffer.d")
 I (..\ModuleDriver\ring_buffer.h)(0x666B1BC8)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x666AEEEC)
@@ -2028,7 +2028,7 @@ I (../Core/Inc/adc.h)(0x666C6A25)
 I (../Core/Inc/main.h)(0x6672B4C0)
 I (../Core/Inc/usart.h)(0x666AEF19)
 I (../Core/Inc/tim.h)(0x6673A663)
-I (../Hardware/Dth11.h)(0x6676D2AA)
+I (../Hardware/Dth11.h)(0x6677D841)
 F (..\MQTT\Platform\FreeRTOS\platform_thread.c)(0x66667305)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../AT -I ../Hal_Uart -I ../MQTT/Common -I ../MQTT/MQTT -I ../MQTT/MQTTClient -I ../MQTT/Network -I ../MQTT/Platform/FreeRTOS -I ../Hardware -I ../ModuleDriver -I ../MQTT_Assignment-I.\RTE\_F4_intelligent_house_system-I"D:\Keil\ARM Start\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include"-I"D:\Keil\ARM Start\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include"-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F40_41xxx -DUSE_HAL_DRIVER -DSTM32F407xx-o "f4 intelligent house system\platform_thread.o" --omf_browse "f4 intelligent house system\platform_thread.crf" --depend "f4 intelligent house system\platform_thread.d")
 I (..\MQTT\Platform\FreeRTOS\platform_thread.h)(0x66667305)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x6675928A)
@@ -2111,8 +2111,8 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x666AEEEF)
 I (../ModuleDriver/ring_buffer.h)(0x666B1BC8)
 F (..\Hardware\Buzzer.c)(0x6672D9B4)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../AT -I ../Hal_Uart -I ../MQTT/Common -I ../MQTT/MQTT -I ../MQTT/MQTTClient -I ../MQTT/Network -I ../MQTT/Platform/FreeRTOS -I ../Hardware -I ../ModuleDriver -I ../MQTT_Assignment-I.\RTE\_F4_intelligent_house_system-I"D:\Keil\ARM Start\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include"-I"D:\Keil\ARM Start\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include"-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F40_41xxx -DUSE_HAL_DRIVER -DSTM32F407xx-o "f4 intelligent house system\buzzer.o" --omf_browse "f4 intelligent house system\buzzer.crf" --depend "f4 intelligent house system\buzzer.d")
 I (..\Hardware\Buzzer.h)(0x6672D9B4)
-F (..\Hardware\Dth11.c)(0x6676D2C9)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../AT -I ../Hal_Uart -I ../MQTT/Common -I ../MQTT/MQTT -I ../MQTT/MQTTClient -I ../MQTT/Network -I ../MQTT/Platform/FreeRTOS -I ../Hardware -I ../ModuleDriver -I ../MQTT_Assignment-I.\RTE\_F4_intelligent_house_system-I"D:\Keil\ARM Start\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include"-I"D:\Keil\ARM Start\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include"-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F40_41xxx -DUSE_HAL_DRIVER -DSTM32F407xx-o "f4 intelligent house system\dth11.o" --omf_browse "f4 intelligent house system\dth11.crf" --depend "f4 intelligent house system\dth11.d")
-I (..\Hardware\Dth11.h)(0x6676D2AA)
+F (..\Hardware\Dth11.c)(0x6677D811)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../AT -I ../Hal_Uart -I ../MQTT/Common -I ../MQTT/MQTT -I ../MQTT/MQTTClient -I ../MQTT/Network -I ../MQTT/Platform/FreeRTOS -I ../Hardware -I ../ModuleDriver -I ../MQTT_Assignment-I.\RTE\_F4_intelligent_house_system-I"D:\Keil\ARM Start\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include"-I"D:\Keil\ARM Start\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include"-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F40_41xxx -DUSE_HAL_DRIVER -DSTM32F407xx-o "f4 intelligent house system\dth11.o" --omf_browse "f4 intelligent house system\dth11.crf" --depend "f4 intelligent house system\dth11.d")
+I (..\Hardware\Dth11.h)(0x6677D841)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x666AEEEC)
 I (../Core/Inc/stm32f4xx_hal_conf.h)(0x66756C73)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x666AEEEC)
@@ -2189,7 +2189,7 @@ I (../MQTT/Common/mqtt_log.h)(0x66667305)
 I (../Hardware/Lightsensor.h)(0x6673EDBB)
 I (../Core/Inc/adc.h)(0x666C6A25)
 I (../Core/Inc/usart.h)(0x666AEF19)
-I (../Hardware/Dth11.h)(0x6676D2AA)
+I (../Hardware/Dth11.h)(0x6677D841)
 F (..\Hardware\Lightsensor.c)(0x6673F073)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../AT -I ../Hal_Uart -I ../MQTT/Common -I ../MQTT/MQTT -I ../MQTT/MQTTClient -I ../MQTT/Network -I ../MQTT/Platform/FreeRTOS -I ../Hardware -I ../ModuleDriver -I ../MQTT_Assignment-I.\RTE\_F4_intelligent_house_system-I"D:\Keil\ARM Start\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include"-I"D:\Keil\ARM Start\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include"-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F40_41xxx -DUSE_HAL_DRIVER -DSTM32F407xx-o "f4 intelligent house system\lightsensor.o" --omf_browse "f4 intelligent house system\lightsensor.crf" --depend "f4 intelligent house system\lightsensor.d")
 I (..\Hardware\Lightsensor.h)(0x6673EDBB)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x666AEEEC)
@@ -2266,7 +2266,7 @@ I (../MQTT/Common/random.h)(0x66667305)
 I (../MQTT/Common/mqtt_error.h)(0x66667305)
 I (../MQTT/Common/mqtt_log.h)(0x66667305)
 I (../Hardware/Lightsensor.h)(0x6673EDBB)
-I (../Hardware/Dth11.h)(0x6676D2AA)
+I (../Hardware/Dth11.h)(0x6677D841)
 I (../Core/Inc/tim.h)(0x6673A663)
 I (../Core/Inc/usart.h)(0x666AEF19)
 F (..\AT\ATcommand.c)(0x66759209)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../AT -I ../Hal_Uart -I ../MQTT/Common -I ../MQTT/MQTT -I ../MQTT/MQTTClient -I ../MQTT/Network -I ../MQTT/Platform/FreeRTOS -I ../Hardware -I ../ModuleDriver -I ../MQTT_Assignment-I.\RTE\_F4_intelligent_house_system-I"D:\Keil\ARM Start\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include"-I"D:\Keil\ARM Start\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include"-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F40_41xxx -DUSE_HAL_DRIVER -DSTM32F407xx-o "f4 intelligent house system\atcommand.o" --omf_browse "f4 intelligent house system\atcommand.crf" --depend "f4 intelligent house system\atcommand.d")
@@ -2347,7 +2347,7 @@ I (../Core/Inc/main.h)(0x6672B4C0)
 I (../AT/ATcommand.h)(0x66752AD2)
 I (../Core/Inc/usart.h)(0x666AEF19)
 I (../Core/Inc/tim.h)(0x6673A663)
-I (../Hardware/Dth11.h)(0x6676D2AA)
+I (../Hardware/Dth11.h)(0x6677D841)
 F (..\Hal_Uart\Hal_Uart.c)(0x666BEF7C)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../AT -I ../Hal_Uart -I ../MQTT/Common -I ../MQTT/MQTT -I ../MQTT/MQTTClient -I ../MQTT/Network -I ../MQTT/Platform/FreeRTOS -I ../Hardware -I ../ModuleDriver -I ../MQTT_Assignment-I.\RTE\_F4_intelligent_house_system-I"D:\Keil\ARM Start\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include"-I"D:\Keil\ARM Start\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include"-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F40_41xxx -DUSE_HAL_DRIVER -DSTM32F407xx-o "f4 intelligent house system\hal_uart.o" --omf_browse "f4 intelligent house system\hal_uart.crf" --depend "f4 intelligent house system\hal_uart.d")
 I (../Hardware/Uart3_IRQ.h)(0x66667305)
 I (../ModuleDriver/driver_usart.h)(0x666B1BC8)
@@ -2399,8 +2399,8 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h)(0x666AEEEF)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/task.h)(0x666AEEEF)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x666AEEEF)
 I (../ModuleDriver/ring_buffer.h)(0x666B1BC8)
-F (..\MQTT_Assignment\MQTT_Task.c)(0x6676D57B)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../AT -I ../Hal_Uart -I ../MQTT/Common -I ../MQTT/MQTT -I ../MQTT/MQTTClient -I ../MQTT/Network -I ../MQTT/Platform/FreeRTOS -I ../Hardware -I ../ModuleDriver -I ../MQTT_Assignment-I.\RTE\_F4_intelligent_house_system-I"D:\Keil\ARM Start\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include"-I"D:\Keil\ARM Start\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include"-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F40_41xxx -DUSE_HAL_DRIVER -DSTM32F407xx-o "f4 intelligent house system\mqtt_task.o" --omf_browse "f4 intelligent house system\mqtt_task.crf" --depend "f4 intelligent house system\mqtt_task.d")
-I (..\MQTT_Assignment\MQTT_Task.h)(0x6676C8D8)
+F (..\MQTT_Assignment\MQTT_Task.c)(0x6677D90B)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../AT -I ../Hal_Uart -I ../MQTT/Common -I ../MQTT/MQTT -I ../MQTT/MQTTClient -I ../MQTT/Network -I ../MQTT/Platform/FreeRTOS -I ../Hardware -I ../ModuleDriver -I ../MQTT_Assignment-I.\RTE\_F4_intelligent_house_system-I"D:\Keil\ARM Start\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include"-I"D:\Keil\ARM Start\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include"-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F40_41xxx -DUSE_HAL_DRIVER -DSTM32F407xx-o "f4 intelligent house system\mqtt_task.o" --omf_browse "f4 intelligent house system\mqtt_task.crf" --depend "f4 intelligent house system\mqtt_task.d")
+I (..\MQTT_Assignment\MQTT_Task.h)(0x6677D949)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x6675928A)
 I (D:\Keil\ARM Start\ARM\ARMCC\include\stddef.h)(0x588B8344)
 I (D:\Keil\ARM Start\ARM\ARMCC\include\stdint.h)(0x588B8344)
@@ -2436,7 +2436,7 @@ I (../MQTT/Network/network.h)(0x66667305)
 I (../MQTT/Common/random.h)(0x66667305)
 I (../MQTT/Common/mqtt_error.h)(0x66667305)
 I (../MQTT/Common/mqtt_log.h)(0x66667305)
-I (../Hardware/Dth11.h)(0x6676D2AA)
+I (../Hardware/Dth11.h)(0x6677D841)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x666AEEEC)
 I (../Core/Inc/stm32f4xx_hal_conf.h)(0x66756C73)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x666AEEEC)

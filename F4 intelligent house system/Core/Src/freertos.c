@@ -106,9 +106,10 @@ void MX_FREERTOS_Init(void) {
 //	xTaskCreate(DHT11_MQTT_Test, "DHT11_MQTT_Test", 256, NULL, osPriorityNormal, &xDTH11Handle);
 	
 	osThreadNew(AT_RecvParse, NULL, &defaultTask_attributes);
-	//MQTT_Client_Task();
-	//osThreadNew(DHT11_MQTT_Test, NULL, &defaultTask_attributes);	
-	osThreadNew(MQTT_Client_Task, NULL, &defaultTask_attributes);
+	
+	osThreadNew(MQTT_Client_Init, NULL, &defaultTask_attributes);
+
+	//osThreadNew(MQTT_Client_Task, NULL, &defaultTask_attributes);
 	
   /* USER CODE END RTOS_THREADS */
 

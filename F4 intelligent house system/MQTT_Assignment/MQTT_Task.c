@@ -1,48 +1,17 @@
 #include "MQTT_Task.h"
 
 static QueueSetHandle_t G_xQueueSetInput; /* 输入设备的队列集 */
-static QueueHandle_t G_xQueue_DTH11;
-static QueueHandle_t G_xQueuePlatform; /* Process data platform */
+QueueHandle_t G_xQueue_DTH11;             /*Global DHT11 Queuehandle*/
+static QueueHandle_t G_xQueuePlatform;    /* Process data platform */
 
 static int Tempature;
 static int Humidity;
 
-/*return handle of DTH11 queue*/
-QueueHandle_t xDT11_GetHandle(void)
-{
-	return G_xQueue_DTH11;
-}
-
-void DHT11_MQTT_Task(void *para)
-{
-	struct DTH11_Data MQTT_Data;
-	int err;
-		
-    DHT11_Init();
-		Delay_ms(50);
-    DHT11_Start();
-		Delay_ms(10);
-    DHT11_Wait_Ack();
-    
-//    for(int i=0;i<5;i++){
-		while(1){
-		err=DHT11_Read_Data(&MQTT_Data.Temp,&MQTT_Data.Humid);
-		
-		if(err)
-		{
-			DHT11_Init();
-			printf("\n\rdht11 read err!\n\r");	 
-		}
-    else{    
-			xQueueSend(G_xQueue_DTH11, &MQTT_Data, NULL);	
-			vTaskDelay(1000);
-		}
-	}
-		
-		
-}
-
-/*Process DTH11 data*/
+/*Process DTH11 data
+*Receive data from DTH11
+*Send data to QueuePlatform
+mdata->idata
+*/
 void ProcessDTH11Data(void)
 {
     struct DTH11_Data mdata;
@@ -56,7 +25,10 @@ void ProcessDTH11Data(void)
     xQueueSend(G_xQueuePlatform, &idata, 0);
 }
 
-/*Process Hardware data*/
+/*Process Hardware data
+ *Receive data from Task return handle
+ *Running Process function
+ */
 static void InputTask(void *params)
 {
     QueueSetMemberHandle_t xQueueHandle;
@@ -77,6 +49,8 @@ static void InputTask(void *params)
     }
 }
 
+/*function:MQTT_Platform
+receive data from Model and send to MQTT*/
 static void MQTT_Platform(void *para)
 {
     struct MQTT_Data Udata;
@@ -94,13 +68,16 @@ static void topic1_handler(void *client, message_data_t *msg)
     MQTT_LOG_I("%s:%d %s()...\r\ntopic: %s\r\nmessage:%s", __FILE__, __LINE__, __FUNCTION__, msg->topic_name, (char *)msg->message->payload);
     MQTT_LOG_I("-----------------------------------------------------------------------------------");
 }
-
-void MQTT_Client_Task()
+/*Gross Assigmment
+ *Set up MQTT connection
+ *Subscribe to topic and send messages
+ */
+void MQTT_Client_Init(void *Param)
 {
 
     int err;
     char buf[60];
-	
+
     mqtt_client_t *client = NULL;
     mqtt_message_t msg;
 
@@ -148,32 +125,27 @@ void MQTT_Client_Task()
     err = mqtt_subscribe(client, "mcu_test", QOS0, NULL);
     printf("subscribe err = %d\r\n", err);
 
-    
-		G_xQueue_DTH11= xQueueCreate(10,sizeof(struct MQTT_Data));
+    G_xQueue_DTH11 = xQueueCreate(10, sizeof(struct MQTT_Data));
     G_xQueuePlatform = xQueueCreate(10, sizeof(struct MQTT_Data));
     G_xQueueSetInput = xQueueCreateSet(DTH11_QUEUE_LEN);
 
-    G_xQueue_DTH11 = xDT11_GetHandle();
 
     xQueueAddToSet(G_xQueue_DTH11, G_xQueueSetInput);
 
-		
-		
     xTaskCreate(DHT11_MQTT_Task, "DTH11_Task", 128, NULL, osPriorityNormal, NULL);
-	
+
     xTaskCreate(InputTask, "InputTask", 128, NULL, osPriorityNormal, NULL);
-	
+
     xTaskCreate(MQTT_Platform, "MQTT_Platform", 128, NULL, osPriorityNormal, NULL);
 
-		
     while (1)
-    {		
-				
-				msg.payload = buf;
-				msg.qos = 0;
+    {
+
+        msg.payload = buf;
+        msg.qos = 0;
         sprintf(buf, "Tempature: %d,Humidity:%d", Tempature, Humidity);
         msg.payloadlen = strlen(msg.payload);
         mqtt_publish(client, "mcu_test", &msg);
-				vTaskDelay(5000);		
+        vTaskDelay(5000);
     }
 }

@@ -21,24 +21,28 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.1.0
 Dialog DLL:      TCM.DLL V1.32.0.0
  
 <h2>Project:</h2>
-C:\Users\Lenovo\Desktop\My FreeRtos\F4 intelligent house system\MDK-ARM\F4 intelligent house system.uvprojx
+c:\Users\Lenovo\Desktop\F4 intelligent house system\MDK-ARM\F4 intelligent house system.uvprojx
 Project File Date:  06/22/2024
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'D:\Keil\ARM Start\ARM\ARMCC\Bin'
 Build target 'F4 intelligent house system'
+compiling freertos.c...
+../MQTT_Assignment/MQTT_Task.h(17): warning:  #1295-D: Deprecated declaration MQTT_Client_Init - give arg types
+  void MQTT_Client_Init();
+../Core/Src/freertos.c: 1 warning, 0 errors
 compiling MQTT_Task.c...
-..\MQTT_Assignment\MQTT_Task.h(16): warning:  #1295-D: Deprecated declaration MQTT_Client_Task - give arg types
-  void MQTT_Client_Task();
-..\MQTT_Assignment\MQTT_Task.c(173): warning:  #188-D: enumerated type mixed with another type
-  				msg.qos = 0;
-..\MQTT_Assignment\MQTT_Task.c(179): warning:  #1-D: last line of file ends without a newline
+..\MQTT_Assignment\MQTT_Task.h(17): warning:  #1295-D: Deprecated declaration MQTT_Client_Init - give arg types
+  void MQTT_Client_Init();
+..\MQTT_Assignment\MQTT_Task.c(145): warning:  #188-D: enumerated type mixed with another type
+          msg.qos = 0;
+..\MQTT_Assignment\MQTT_Task.c(151): warning:  #1-D: last line of file ends without a newline
   }
 ..\MQTT_Assignment\MQTT_Task.c: 3 warnings, 0 errors
 linking...
-Program Size: Code=37048 RO-data=1484 RW-data=208 ZI-data=25088  
+Program Size: Code=36976 RO-data=1484 RW-data=204 ZI-data=24924  
 FromELF: creating hex file...
-"F4 intelligent house system\F4 intelligent house system.axf" - 0 Error(s), 3 Warning(s).
+"F4 intelligent house system\F4 intelligent house system.axf" - 0 Error(s), 4 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -61,7 +65,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.0.1
-Build Time Elapsed:  00:00:03
+Build Time Elapsed:  00:00:04
 </pre>
 </body>
 </html>

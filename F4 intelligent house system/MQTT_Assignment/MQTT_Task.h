@@ -13,6 +13,6 @@ struct MQTT_Data{
 };
 
 void DHT11_MQTT_Task(void *para);
-void MQTT_Client_Task();
-
+//void MQTT_Client_Task();
+void MQTT_Client_Init();
 #endif

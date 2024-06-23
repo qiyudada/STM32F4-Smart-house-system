@@ -4,9 +4,11 @@
 #include "mqttclient.h"
 #include "ATcommand.h"
 
-static QueueHandle_t G_xQueueDTH11; /* DTH11 Queue */
-static uint8_t G_ucQueueDTH11Buff[DTH11_QUEUE_LEN*sizeof(struct DTH11_Data)];
-static StaticQueue_t G_xQueueDTH11StaticStruct;
+//static QueueHandle_t G_xQueueDTH11; /* DTH11 Queue */
+// static uint8_t G_ucQueueDTH11Buff[DTH11_QUEUE_LEN*sizeof(struct DTH11_Data)];
+// static StaticQueue_t G_xQueueDTH11StaticStruct;
+/*Extern Global QueueHandle*/
+extern QueueHandle_t G_xQueue_DTH11;
 
 ///*return handle of DTH11 queue*/
 //QueueHandle_t xDT11_GetHandle(void)
@@ -111,11 +113,10 @@ int DHT11_ReadByte(void)
     return dat;
 }
 
-void DHT11_Init(void)
-{
-    G_xQueueDTH11 = xQueueCreateStatic(DTH11_QUEUE_LEN, 
-    sizeof(struct DTH11_Data), G_ucQueueDTH11Buff, &G_xQueueDTH11StaticStruct);
-}
+//void DHT11_Init(void)
+//{
+//    G_xQueueDTH11 = xQueueCreate(DTH11_QUEUE_LEN, sizeof(struct DTH11_Data));
+//}
 
 /**
  * @brief  DHT11读取数据
@@ -149,7 +150,7 @@ void DHT11_Test(void)
 {
     int hum, temp;
 
-    DHT11_Init();
+    //DHT11_Init();
     DHT11_Start();
     DHT11_Wait_Ack();
 
@@ -158,7 +159,7 @@ void DHT11_Test(void)
         if (DHT11_Read_Data(&temp, &hum) != 0)
         {
             printf("\n\rdht11 read err!\n\r");
-            DHT11_Init();
+            DHT11_PinCfgAsOutput(); 
         }
         else
         {
@@ -175,5 +176,31 @@ void DHT11_Test(void)
     }
 }
 
+void DHT11_MQTT_Task(void *para)
+{
+    struct DTH11_Data MQTT_Data;
+    int err;
 
+   
+    DHT11_Start();
+   
+    DHT11_Wait_Ack();
+
+    while (1)
+    {
+        err = DHT11_Read_Data(&MQTT_Data.Temp, &MQTT_Data.Humid);
+
+        if (err)
+        {
+            DHT11_PinCfgAsInput();
+            printf("\n\rdht11 read err!\n\r");
+        }
+        else
+        {
+//						DHT11_Init();
+            xQueueSend(G_xQueue_DTH11, &MQTT_Data, NULL);
+            vTaskDelay(1000);
+        }
+    }
+}
 
