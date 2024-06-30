@@ -1428,24 +1428,24 @@ int mqtt_publish(mqtt_client_t* c, const char* topic_filter, mqtt_message_t* msg
     platform_timer_t timer;
     MQTTString topic = MQTTString_initializer;
     topic.cstring = (char *)topic_filter;
-
+    /*if client is not connected, clear the payloadlen and return error(-1)*/
     if (CLIENT_STATE_CONNECTED != mqtt_get_client_state(c)) {
         msg->payloadlen = 0;        // clear
         rc = MQTT_NOT_CONNECT_ERROR;
         RETURN_ERROR(rc);              
         // goto exit;  /* 100ask */
     }
-
+    /*if message is not null, but payloadlength is 0, set the payloadlen to strlen(payload)*/
     if ((NULL != msg->payload) && (0 == msg->payloadlen))
         msg->payloadlen = strlen((char*)msg->payload);
-
+    /*if the payloadlen is greater than the client write buffer, return error(-8)*/
     if (msg->payloadlen > c->mqtt_write_buf_size) {
         MQTT_LOG_E("publish payload len is is greater than client write buffer...");
         RETURN_ERROR(MQTT_BUFFER_TOO_SHORT_ERROR);
     }
-
+    /*if something wrong does not match,start to lock and write data */
     platform_mutex_lock(&c->mqtt_write_lock);
-
+    /*if the qos is not QOS0, get the next packet id*/
     if (QOS0 != msg->qos) {
         if (mqtt_ack_handler_is_maximum(c)) {
             rc = MQTT_ACK_HANDLER_NUM_TOO_MUCH_ERROR; /* the recorded ack handler has reached the maximum */

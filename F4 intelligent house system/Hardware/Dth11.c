@@ -3,21 +3,15 @@
 #include <platform_mutex.h>
 #include "mqttclient.h"
 #include "ATcommand.h"
+#include "semphr.h"
 
-//static QueueHandle_t G_xQueueDTH11; /* DTH11 Queue */
-// static uint8_t G_ucQueueDTH11Buff[DTH11_QUEUE_LEN*sizeof(struct DTH11_Data)];
-// static StaticQueue_t G_xQueueDTH11StaticStruct;
-/*Extern Global QueueHandle*/
-extern QueueHandle_t G_xQueue_DTH11;
+extern QueueHandle_t G_xMessageQueueToMQTT;
+extern SemaphoreHandle_t G_xSemTicks;
+extern EventGroupHandle_t Event_Handle;
 
-///*return handle of DTH11 queue*/
-//QueueHandle_t xDT11_GetHandle(void)
-//{
-//	return G_xQueueDTH11;
-//}
-
-
-
+extern int WIFI_CONECT;
+extern int PING_MODE;
+extern int PING_UPLOAD;
 void DHT11_PinCfgAsOutput(void)
 {
     GPIO_InitTypeDef GPIO_InitStruct = {0};
@@ -44,7 +38,7 @@ void DHT11_Start(void)
 {
     DHT11_PinCfgAsOutput(); // PA7设置为输出模式
     DHT11_LOW;              // 主机拉低总线
-    Delay_ms(20);         // 延迟必须大于18ms ；
+    Delay_ms(20);           // 延迟必须大于18ms ；
     DHT11_HIGH;             // 主机拉高总线等待DHT11响应
     Delay_us(30);
 }
@@ -113,10 +107,10 @@ int DHT11_ReadByte(void)
     return dat;
 }
 
-//void DHT11_Init(void)
+// void DHT11_Init(void)
 //{
-//    G_xQueueDTH11 = xQueueCreate(DTH11_QUEUE_LEN, sizeof(struct DTH11_Data));
-//}
+//     G_xQueueDTH11 = xQueueCreate(DTH11_QUEUE_LEN, sizeof(struct DTH11_Data));
+// }
 
 /**
  * @brief  DHT11读取数据
@@ -150,7 +144,7 @@ void DHT11_Test(void)
 {
     int hum, temp;
 
-    //DHT11_Init();
+    // DHT11_Init();
     DHT11_Start();
     DHT11_Wait_Ack();
 
@@ -159,7 +153,7 @@ void DHT11_Test(void)
         if (DHT11_Read_Data(&temp, &hum) != 0)
         {
             printf("\n\rdht11 read err!\n\r");
-            DHT11_PinCfgAsOutput(); 
+            DHT11_PinCfgAsOutput();
         }
         else
         {
@@ -178,17 +172,22 @@ void DHT11_Test(void)
 
 void DHT11_MQTT_Task(void *para)
 {
-    struct DTH11_Data MQTT_Data;
+    struct DTH11_Data D_Data;
     int err;
 
-   
+    // xSemaphoreTake(G_xSemTicks, portMAX_DELAY);
     DHT11_Start();
-   
+
     DHT11_Wait_Ack();
 
     while (1)
     {
-        err = DHT11_Read_Data(&MQTT_Data.Temp, &MQTT_Data.Humid);
+        xEventGroupWaitBits((EventGroupHandle_t)Event_Handle,
+                            (EventBits_t)WIFI_CONECT|PING_UPLOAD,
+                            (BaseType_t)pdFALSE,
+                            (BaseType_t)pdFALSE,
+                            (TickType_t)portMAX_DELAY);
+        err = DHT11_Read_Data(&D_Data.Temp, &D_Data.Humid);
 
         if (err)
         {
@@ -197,10 +196,12 @@ void DHT11_MQTT_Task(void *para)
         }
         else
         {
-//						DHT11_Init();
-            xQueueSend(G_xQueue_DTH11, &MQTT_Data, NULL);
+            xEventGroupSetBits(Event_Handle, PING_MODE);
+            xEventGroupClearBits(Event_Handle, WIFI_CONECT);
+            sprintf(D_Data.data_of_sensor, "\"temperature\":\"%d\",\"humidity\":\"%d\"", D_Data.Temp, D_Data.Humid);
+            xQueueSend(G_xMessageQueueToMQTT, &D_Data.data_of_sensor, NULL);
+            printf("send DTH11 data successfully\r\n");
             vTaskDelay(1000);
         }
     }
 }
-

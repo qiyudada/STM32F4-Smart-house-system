@@ -21,7 +21,7 @@
 #include "FreeRTOS.h"
 #include "task.h"
 #include "main.h"
-#include "cmsis_os.h"
+#include "cmsis_os2.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -55,9 +55,9 @@ osThreadId_t defaultTaskHandle;
 const osThreadAttr_t defaultTask_attributes = {
   .name = "defaultTask",
   .stack_size = 256 * 4,
-  .priority = (osPriority_t) osPriorityNormal,
+  .priority = (osPriority_t)osPriorityRealtime,
 };
-
+TaskHandle_t G_xMQTTClientInitHandle;
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
 
@@ -102,13 +102,13 @@ void MX_FREERTOS_Init(void) {
 	
 	
 //	xTaskCreate(AT_RecvParse, "AT_RecvParse", 256, NULL, osPriorityNormal, NULL);
-//	xTaskCreate(MQTT_Client_Task, "MQTT_Client_Task", 256, NULL, osPriorityNormal, NULL);
+
 //	xTaskCreate(DHT11_MQTT_Test, "DHT11_MQTT_Test", 256, NULL, osPriorityNormal, &xDTH11Handle);
 	
 	osThreadNew(AT_RecvParse, NULL, &defaultTask_attributes);
 	
-	osThreadNew(MQTT_Client_Init, NULL, &defaultTask_attributes);
-
+	//osThreadNew(MQTT_Client_Init, NULL, &defaultTask_attributes);
+	xTaskCreate(MQTT_Client_Init, "MQTT_Client_Init", 128, NULL, (osPriority_t)osPriorityRealtime, &G_xMQTTClientInitHandle);
 	//osThreadNew(MQTT_Client_Task, NULL, &defaultTask_attributes);
 	
   /* USER CODE END RTOS_THREADS */

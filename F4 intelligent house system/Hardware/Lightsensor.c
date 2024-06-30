@@ -1,6 +1,8 @@
 #include "Lightsensor.h"
 
+extern SemaphoreHandle_t G_xSemTicks;
 static ADC_HandleTypeDef *g_HADC_LightSensor = &hadc1;
+// extern QueueHandle_t G_xQueue_LightSensor;
 /*function: LightSensor_Init
 parameter: none
 return: none
@@ -15,7 +17,7 @@ void LightSensor_Init(void)
 parameter: pData
 return: 0 success, -1 fail
 */
-int LightSensor_Read(uint32_t *pData)
+int LightSensor_Read(int *pData)
 {
      HAL_ADC_Start(g_HADC_LightSensor);
      if (HAL_OK == HAL_ADC_PollForConversion(g_HADC_LightSensor, LIGHT_SENSOR_ADC_TIMEOUT))
@@ -53,3 +55,26 @@ void LightSensor_Test(void)
         Delay_ms(2000);
     }
 }
+
+//void LightSensor_MQTT_Task(void* para)
+//{
+//	//xSemaphoreTake(G_xSemTicks, portMAX_DELAY);
+//    struct Light_Data L_Data;
+
+//    LightSensor_Init();
+
+//    while (1)
+//    {
+
+//        if (!LightSensor_Read(&L_Data.Sample))
+//        {
+//            L_Data.Volt = L_Data.Sample * 330/4096;
+//            xQueueSend(G_xQueue_LightSensor, &L_Data, NULL);
+//            vTaskDelay(2000);
+//        }
+//        else 
+//        {
+//            printf("Light Sensor Read Fail\r\n");
+//        }
+//    }
+//}

@@ -5,13 +5,14 @@
 #include "task.h"
 #include "queue.h"
 #include "tim.h"
+#include "event_groups.h"
 
 struct DTH11_Data{
 	int Temp;
 	int Humid;
+	char data_of_sensor[50];
 };
 	
-#define DTH11_QUEUE_LEN 10
 #define DTH11_Port GPIOA
 #define DTH11_PIN GPIO_PIN_12
 

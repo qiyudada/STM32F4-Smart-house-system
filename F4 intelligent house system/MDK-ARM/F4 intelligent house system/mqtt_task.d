@@ -9,9 +9,9 @@ f4 intelligent house system\mqtt_task.o: ../Middlewares/Third_Party/FreeRTOS/Sou
 f4 intelligent house system\mqtt_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
 f4 intelligent house system\mqtt_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/portmacro.h
 f4 intelligent house system\mqtt_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+f4 intelligent house system\mqtt_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
 f4 intelligent house system\mqtt_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
 f4 intelligent house system\mqtt_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
-f4 intelligent house system\mqtt_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
 f4 intelligent house system\mqtt_task.o: ../MQTT/MQTTClient/mqttclient.h
 f4 intelligent house system\mqtt_task.o: D:\Keil\ARM Start\ARM\ARMCC\Bin\..\include\stdio.h
 f4 intelligent house system\mqtt_task.o: D:\Keil\ARM Start\ARM\ARMCC\Bin\..\include\string.h
@@ -29,6 +29,7 @@ f4 intelligent house system\mqtt_task.o: ../MQTT/Platform/FreeRTOS/platform_memo
 f4 intelligent house system\mqtt_task.o: D:\Keil\ARM Start\ARM\ARMCC\Bin\..\include\stdlib.h
 f4 intelligent house system\mqtt_task.o: ../MQTT/Platform/FreeRTOS/platform_mutex.h
 f4 intelligent house system\mqtt_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h
+f4 intelligent house system\mqtt_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
 f4 intelligent house system\mqtt_task.o: ../MQTT/Platform/FreeRTOS/platform_thread.h
 f4 intelligent house system\mqtt_task.o: ../MQTT/MQTTClient/mqtt_defconfig.h
 f4 intelligent house system\mqtt_task.o: ../MQTT/MQTTClient/mqtt_config.h
@@ -82,5 +83,5 @@ f4 intelligent house system\mqtt_task.o: ../Core/Inc/main.h
 f4 intelligent house system\mqtt_task.o: ../Core/Inc/usart.h
 f4 intelligent house system\mqtt_task.o: ../Core/Inc/tim.h
 f4 intelligent house system\mqtt_task.o: ../Hardware/Dth11.h
-f4 intelligent house system\mqtt_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h
-f4 intelligent house system\mqtt_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
+f4 intelligent house system\mqtt_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
+f4 intelligent house system\mqtt_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h

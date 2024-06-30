@@ -13,9 +13,11 @@
         "mqtt_task.h": "c",
         "stm32f4xx_hal.h": "c",
         "cmsis_os.h": "c",
-        "freertosconfig.h": "c"
+        "freertosconfig.h": "c",
+        "event_groups.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled",
     "workbench.colorTheme": "Default Dark Modern",
-    "workbench.preferredDarkColorTheme": "Quiet Light"
+    "workbench.preferredDarkColorTheme": "Default Dark Modern",
+    "files.autoSave": "afterDelay"
 }

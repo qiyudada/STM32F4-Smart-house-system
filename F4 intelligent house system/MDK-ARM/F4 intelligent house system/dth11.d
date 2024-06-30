@@ -81,3 +81,5 @@ f4 intelligent house system\dth11.o: ../Core/Inc/main.h
 f4 intelligent house system\dth11.o: ../Core/Inc/usart.h
 f4 intelligent house system\dth11.o: ../Core/Inc/tim.h
 f4 intelligent house system\dth11.o: ../Hardware/Dth11.h
+f4 intelligent house system\dth11.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
+f4 intelligent house system\dth11.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h

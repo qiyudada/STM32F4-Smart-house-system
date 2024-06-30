@@ -79,4 +79,6 @@ f4 intelligent house system\lightsensor.o: ../Hardware/Lightsensor.h
 f4 intelligent house system\lightsensor.o: ../Hardware/Dth11.h
 f4 intelligent house system\lightsensor.o: ../Core/Inc/tim.h
 f4 intelligent house system\lightsensor.o: ../Core/Inc/main.h
+f4 intelligent house system\lightsensor.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
+f4 intelligent house system\lightsensor.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h
 f4 intelligent house system\lightsensor.o: ../Core/Inc/usart.h
