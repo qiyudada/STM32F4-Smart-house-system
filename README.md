@@ -13,8 +13,8 @@ Some bug record:
    Solution: substitute vTaskdelete() for vTaskSuspend();
 2.osPriority setted by hal's freertos doen't match the original priority;
   Solution: substitute #include "cmsis_os.h" for #include "cmsis_os2.h",use the (osPriority_t) to relieve the limitation of priority is less.
-3.Programme through three times start to stuck in vportfree(),consider it maybe stack and heap is overflow,so expand the capacity.but helpless.
-  Solution: after check the process,I find myself create and delete taskhandle over and over again ,so change the method and add a judge to determine handle or not
+3.Programme through three times start to stuck in vportfree(),consider maybe its stack and heap is overflow,so expand the capacity.but helpless.
+  Solution: after check the process,I find myself create and delete task handle over and over again ,so change the method and add a judge to determine handle or not
   code :
     if (G_xMQTT_Client_Task != NULL)  
     {
