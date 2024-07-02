@@ -1,5 +1,7 @@
 f4 intelligent house system\mqtt_task.o: ..\MQTT_Assignment\MQTT_Task.c
 f4 intelligent house system\mqtt_task.o: ..\MQTT_Assignment\MQTT_Task.h
+f4 intelligent house system\mqtt_task.o: D:\Keil\ARM Start\ARM\ARMCC\Bin\..\include\stdio.h
+f4 intelligent house system\mqtt_task.o: D:\Keil\ARM Start\ARM\ARMCC\Bin\..\include\string.h
 f4 intelligent house system\mqtt_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 f4 intelligent house system\mqtt_task.o: D:\Keil\ARM Start\ARM\ARMCC\Bin\..\include\stddef.h
 f4 intelligent house system\mqtt_task.o: D:\Keil\ARM Start\ARM\ARMCC\Bin\..\include\stdint.h
@@ -13,8 +15,6 @@ f4 intelligent house system\mqtt_task.o: ../Middlewares/Third_Party/FreeRTOS/Sou
 f4 intelligent house system\mqtt_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
 f4 intelligent house system\mqtt_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
 f4 intelligent house system\mqtt_task.o: ../MQTT/MQTTClient/mqttclient.h
-f4 intelligent house system\mqtt_task.o: D:\Keil\ARM Start\ARM\ARMCC\Bin\..\include\stdio.h
-f4 intelligent house system\mqtt_task.o: D:\Keil\ARM Start\ARM\ARMCC\Bin\..\include\string.h
 f4 intelligent house system\mqtt_task.o: ../MQTT/MQTT/MQTTPacket.h
 f4 intelligent house system\mqtt_task.o: ../MQTT/MQTT/MQTTConnect.h
 f4 intelligent house system\mqtt_task.o: ../MQTT/MQTT/MQTTPublish.h

@@ -4,15 +4,15 @@
 TaskHandle_t G_xMQTT_Client_Task;
 TaskHandle_t G_xQueuePlatform; /* Process data platform */
 TaskHandle_t G_xDHT11_Task_Handler;
+TaskHandle_t G_xLightSensor_Task_Handler;
 extern TaskHandle_t G_xMQTTClientInitHandle;
 /*Semaphore handle*/
-SemaphoreHandle_t G_xSemTicks;
-
+SemaphoreHandle_t G_xTaskMutex;
 /*Eventgroup handle*/
 EventGroupHandle_t Event_Handle = NULL;
-const int WIFI_CONECT = (0x01 << 1);
-const int PING_MODE = (0x01 << 2);
-const int PING_UPLOAD = (0x01 << 3);
+const int WIFI_CONECT = (0x01 << 0);
+const int PING_MODE1 = (0x01 << 1);
+const int PING_MODE2 = (0x01 << 2);
 /*Queue handle*/
 QueueHandle_t G_xMessageQueueToMQTT;
 const UBaseType_t MESSAGE_DATA_TX_NUM = 5;   // Message Queue Maximun numbers
@@ -21,18 +21,16 @@ const UBaseType_t MESSAGE_DATA_TX_LEN = 100; // Message Queue unit size Byte
 mqtt_client_t *client = NULL;
 mqtt_message_t msg;
 
-static char buf[128];
-
 /*function:MQTT_Platform
 receive data from Model and send to MQTT*/
 static void MQTT_Platform(void *para)
 {
-    int err;
+
+    xSemaphoreTake(G_xTaskMutex, portMAX_DELAY);
     /*send the message to MQTT servicer*/
     printf("enter MQTT_Platform successfully\r\n");
     char data_buffer[256] = {0}; // data buffer Initialization
-    int data_len = 0;            // Data length initialization
-    int data_msg_len = 0;        // Message length initialization
+
     msg.payload = data_buffer;
     msg.qos = QOS0;
 
@@ -40,25 +38,28 @@ static void MQTT_Platform(void *para)
     {
         // waitting for ping message
         xEventGroupWaitBits((EventGroupHandle_t)Event_Handle,
-                            (EventBits_t)PING_MODE,
-                            (BaseType_t)pdFALSE,
+                            (EventBits_t)PING_MODE1 | PING_MODE2,//add event signal in here
+                            (BaseType_t)pdTRUE,//clear the signal when complete once upload 
                             (BaseType_t)pdTRUE,
                             (TickType_t)portMAX_DELAY);
-
-        if (xQueueReceive(G_xMessageQueueToMQTT, data_buffer, 10))
+        if (xQueueReceive(G_xMessageQueueToMQTT, data_buffer + strlen(data_buffer), 10))
         {
-            xEventGroupClearBits(Event_Handle, PING_MODE);
+            while (xQueueReceive(G_xMessageQueueToMQTT, data_buffer + strlen(data_buffer), 10))
+            {
+            }
             msg.payloadlen = strlen(msg.payload);
-            mqtt_publish(client, "mcu_test", &msg);
+            mqtt_publish(client, "mcu_test", &msg);//publish the message to mqtt server
+            xSemaphoreGive(G_xTaskMutex);
             printf("send data to MQTT server successfully\r\n");
-            xEventGroupSetBits(Event_Handle, PING_UPLOAD);
-            vTaskDelay(3000);
+            memset(data_buffer, 0, sizeof(data_buffer));//reset data buffer
+            vTaskDelay(1000);
         }
         else
         {
             printf("No data received\r\n");
+            xSemaphoreGive(G_xTaskMutex);
+            vTaskDelay(1000);
         }
-        //vTaskResume(G_xMQTTClientInitHandle);
     }
 }
 static void topic1_handler(void *client, message_data_t *msg)
@@ -138,27 +139,27 @@ void MQTT_Client_Init(void *Param)
 void MQTT_Client_Task(void *Param)
 {
     printf("enter MQTTClientTask successfully\r\n");
-
+    taskENTER_CRITICAL();//enter critical area to prevent the task from being interrupted
     /*create Eventgroup task*/
     Event_Handle = xEventGroupCreate();
     xEventGroupSetBits(Event_Handle, WIFI_CONECT);
     /*create Semaphore*/
-    // G_xSemTicks = xSemaphoreCreateBinary();
+    G_xTaskMutex = xSemaphoreCreateMutex();
     /*create Message Queue*/
     G_xMessageQueueToMQTT = xQueueCreate(MESSAGE_DATA_TX_NUM, MESSAGE_DATA_TX_LEN);
-    /* create task */
-    xTaskCreate(DHT11_MQTT_Task, "DTH11_Task", 128, NULL, osPriorityHigh, &G_xDHT11_Task_Handler);
-    // xTaskCreate(LightSensor_MQTT_Task, "LightSensor_MQTT_Task", 128, NULL, osPriorityNormal, NULL);
 
     /* create Process task */
     xTaskCreate(MQTT_Platform, "MQTT_Platform", 512, NULL, osPriorityAboveNormal, &G_xQueuePlatform);
 
-    if (G_xMQTT_Client_Task != NULL)
+    /* create task */
+    xTaskCreate(LightSensor_MQTT_Task, "LightSensor_MQTT_Task", 128, NULL, osPriorityAboveNormal7, &G_xLightSensor_Task_Handler);
+    xTaskCreate(DHT11_MQTT_Task, "DTH11_Task", 128, NULL, osPriorityHigh, &G_xDHT11_Task_Handler);//last create task(must running dth11 task firstly)
+
+    if (G_xMQTT_Client_Task != NULL)//delete create task
     {
         vTaskDelete(G_xMQTT_Client_Task);
         G_xMQTT_Client_Task = NULL;
-        printf("G_xMQTT_Client_Task task deleted\r\n");
+        printf("G_xMQTT_Client_Task task has deleted\r\n");
     }
-
-    vTaskDelay(1000);
+    taskEXIT_CRITICAL();
 }

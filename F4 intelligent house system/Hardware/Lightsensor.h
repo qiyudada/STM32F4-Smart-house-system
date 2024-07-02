@@ -14,6 +14,7 @@ extern ADC_HandleTypeDef hadc1;
 struct Light_Data{
 	int Volt;
 	int Sample;
+	char data_sensor[50];
 };
 
 void LightSensor_Init(void);

@@ -6,12 +6,11 @@
 #include "semphr.h"
 
 extern QueueHandle_t G_xMessageQueueToMQTT;
-extern SemaphoreHandle_t G_xSemTicks;
 extern EventGroupHandle_t Event_Handle;
-
+extern TaskHandle_t G_xDHT11_Task_Handler;
+extern SemaphoreHandle_t G_xTaskMutex;
 extern int WIFI_CONECT;
-extern int PING_MODE;
-extern int PING_UPLOAD;
+extern int PING_MODE1;
 void DHT11_PinCfgAsOutput(void)
 {
     GPIO_InitTypeDef GPIO_InitStruct = {0};
@@ -172,6 +171,8 @@ void DHT11_Test(void)
 
 void DHT11_MQTT_Task(void *para)
 {
+
+    xSemaphoreTake(G_xTaskMutex, portMAX_DELAY);//waitting for the mutex,prevent other task from running
     struct DTH11_Data D_Data;
     int err;
 
@@ -183,25 +184,27 @@ void DHT11_MQTT_Task(void *para)
     while (1)
     {
         xEventGroupWaitBits((EventGroupHandle_t)Event_Handle,
-                            (EventBits_t)WIFI_CONECT|PING_UPLOAD,
+                            (EventBits_t)WIFI_CONECT,//provided by  MQTT_Client_Task()
                             (BaseType_t)pdFALSE,
-                            (BaseType_t)pdFALSE,
+                            (BaseType_t)pdTRUE,
                             (TickType_t)portMAX_DELAY);
-        err = DHT11_Read_Data(&D_Data.Temp, &D_Data.Humid);
 
+        err = DHT11_Read_Data(&D_Data.Temp, &D_Data.Humid);
         if (err)
         {
             DHT11_PinCfgAsInput();
             printf("\n\rdht11 read err!\n\r");
+            xSemaphoreGive(G_xTaskMutex);
+            vTaskDelay(2000);
         }
         else
         {
-            xEventGroupSetBits(Event_Handle, PING_MODE);
-            xEventGroupClearBits(Event_Handle, WIFI_CONECT);
-            sprintf(D_Data.data_of_sensor, "\"temperature\":\"%d\",\"humidity\":\"%d\"", D_Data.Temp, D_Data.Humid);
+            sprintf(D_Data.data_of_sensor, "\"temperature\":\"%d\",\"humidity\":\"%d\",", D_Data.Temp, D_Data.Humid);
             xQueueSend(G_xMessageQueueToMQTT, &D_Data.data_of_sensor, NULL);
             printf("send DTH11 data successfully\r\n");
-            vTaskDelay(1000);
+            xEventGroupSetBits(Event_Handle, PING_MODE1);//set up event group bit 
+            xSemaphoreGive(G_xTaskMutex);
+            vTaskDelay(2000);
         }
     }
 }
