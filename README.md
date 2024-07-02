@@ -22,6 +22,11 @@ Some bug record:
         G_xMQTT_Client_Task = NULL;
         printf("G_xMQTT_Client_Task task deleted\r\n");
     }
-   
+ ----------------------------------------------------------------------------------
+   >2024/7/2
+ 1.when create same priority tasks which are running immediately
+  Solution: use Mutex to protect resource avoid being interrupted
+2.Programme was stuck in hardware_error,because of stack is overflow
+  Solution:use memset to clear upload buffer.
  
 
