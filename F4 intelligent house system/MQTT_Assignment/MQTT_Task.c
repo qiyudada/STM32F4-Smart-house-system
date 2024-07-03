@@ -17,7 +17,7 @@ const int PING_MODE2 = (0x01 << 2);
 QueueHandle_t G_xMessageQueueToMQTT;
 const UBaseType_t MESSAGE_DATA_TX_NUM = 5;   // Message Queue Maximun numbers
 const UBaseType_t MESSAGE_DATA_TX_LEN = 100; // Message Queue unit size Byte
-
+/*MQTT Client name*/
 mqtt_client_t *client = NULL;
 mqtt_message_t msg;
 

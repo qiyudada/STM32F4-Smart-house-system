@@ -83,5 +83,8 @@ f4 intelligent house system\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/i
 f4 intelligent house system\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h
 f4 intelligent house system\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h
 f4 intelligent house system\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
+f4 intelligent house system\main.o: ../Core/Inc/dma.h
 f4 intelligent house system\main.o: ../Core/Inc/spi.h
 f4 intelligent house system\main.o: ../Core/Inc/gpio.h
+f4 intelligent house system\main.o: ../Hardware/Lcd.h
+f4 intelligent house system\main.o: ../Hardware/lcd_init.h

@@ -81,5 +81,6 @@ f4 intelligent house system\freertos.o: ../Core/Inc/tim.h
 f4 intelligent house system\freertos.o: ../Hardware/Dth11.h
 f4 intelligent house system\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
 f4 intelligent house system\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h
+f4 intelligent house system\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h
 f4 intelligent house system\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
 f4 intelligent house system\freertos.o: ../MQTT_Assignment/MQTT_Task.h

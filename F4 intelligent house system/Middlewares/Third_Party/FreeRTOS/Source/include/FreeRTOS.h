@@ -775,7 +775,7 @@ hold explicit before calling the code. */
 #endif
 
 #ifndef configUSE_QUEUE_SETS
-	#define configUSE_QUEUE_SETS 1
+	#define configUSE_QUEUE_SETS 0
 #endif
 
 #ifndef portTASK_USES_FLOATING_POINT

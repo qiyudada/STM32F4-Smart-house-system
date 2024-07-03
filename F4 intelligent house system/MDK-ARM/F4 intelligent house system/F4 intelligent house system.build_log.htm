@@ -21,25 +21,26 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.1.0
 Dialog DLL:      TCM.DLL V1.32.0.0
  
 <h2>Project:</h2>
-c:\Users\Lenovo\Desktop\My FreeRtos\F4 intelligent house system\MDK-ARM\F4 intelligent house system.uvprojx
-Project File Date:  06/22/2024
+C:\Users\Lenovo\Desktop\My FreeRtos\F4 intelligent house system\MDK-ARM\F4 intelligent house system.uvprojx
+Project File Date:  07/03/2024
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'D:\Keil\ARM Start\ARM\ARMCC\Bin'
 Build target 'F4 intelligent house system'
-compiling MQTT_Task.c...
-compiling Lightsensor.c...
-..\Hardware\Lightsensor.c(51): warning:  #167-D: argument of type "uint32_t *" is incompatible with parameter of type "int *"
-          if (!LightSensor_Read(&ADC_Sample))
-..\Hardware\Lightsensor.c(95): warning:  #1-D: last line of file ends without a newline
+compiling main.c...
+../Hardware/lcd_init.h(42): warning:  #1-D: last line of file ends without a newline
+  #endif
+../Core/Src/main.c: 1 warning, 0 errors
+compiling Lcd.c...
+..\Hardware\lcd_init.h(42): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\Hardware\Lcd.c(559): warning:  #1-D: last line of file ends without a newline
   }
-..\Hardware\Lightsensor.c: 2 warnings, 0 errors
-compiling freertos.c...
-compiling Dth11.c...
+..\Hardware\Lcd.c: 2 warnings, 0 errors
 linking...
-Program Size: Code=39868 RO-data=1504 RW-data=228 ZI-data=26988  
+Program Size: Code=22124 RO-data=18276 RW-data=152 ZI-data=21512  
 FromELF: creating hex file...
-"F4 intelligent house system\F4 intelligent house system.axf" - 0 Error(s), 2 Warning(s).
+"F4 intelligent house system\F4 intelligent house system.axf" - 0 Error(s), 3 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -62,7 +63,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.0.1
-Build Time Elapsed:  00:00:06
+Build Time Elapsed:  00:00:03
 </pre>
 </body>
 </html>

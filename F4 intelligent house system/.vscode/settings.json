@@ -14,7 +14,11 @@
         "stm32f4xx_hal.h": "c",
         "cmsis_os.h": "c",
         "freertosconfig.h": "c",
-        "event_groups.h": "c"
+        "event_groups.h": "c",
+        "spi.h": "c",
+        "lcd.h": "c",
+        "dma.h": "c",
+        "mydma.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled",
     "workbench.colorTheme": "Default Dark Modern",

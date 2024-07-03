@@ -39,7 +39,7 @@ return: none
 */
 void LightSensor_Test(void)
 {
-    uint32_t ADC_Sample, ADC_Volt;
+    int ADC_Sample, ADC_Volt;
 
     LightSensor_Init();
 

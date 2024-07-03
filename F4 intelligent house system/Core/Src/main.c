@@ -20,6 +20,7 @@
 #include "main.h"
 #include "cmsis_os.h"
 #include "adc.h"
+#include "dma.h"
 #include "spi.h"
 #include "tim.h"
 #include "usart.h"
@@ -29,6 +30,7 @@
 /* USER CODE BEGIN Includes */
 #include "Dth11.h"
 #include "Lightsensor.h"
+#include "Lcd.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -93,6 +95,7 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_TIM5_Init();
   MX_USART1_UART_Init();
   MX_USART3_UART_Init();
@@ -100,11 +103,14 @@ int main(void)
   MX_SPI1_Init();
   MX_TIM7_Init();
   /* USER CODE BEGIN 2 */
+  LCD_Init();
+  LCD_Fill(0, 0,LCD_W,LCD_H, WHITE);
+
 	EnableDebugIRQ();
 	EnableUART3IRQ();
 	Uart3_Lock_Init();
   ring_buffer_init(&test_buffer);
-  //DTH11_Platform_Init();
+  
 	ATInit();
 	printf("Hello World!\r\n");
   /* USER CODE END 2 */
@@ -113,10 +119,10 @@ int main(void)
   osKernelInitialize();
 
   /* Call init function for freertos objects (in cmsis_os2.c) */
-  MX_FREERTOS_Init();
+  //MX_FREERTOS_Init();
 
   /* Start scheduler */
-  osKernelStart();
+  //osKernelStart();
 
   /* We should never get here as control is now taken by the scheduler */
 
@@ -124,8 +130,9 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    LCD_Test();
     /* USER CODE END WHILE */
-		//DHT11_Test();
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
