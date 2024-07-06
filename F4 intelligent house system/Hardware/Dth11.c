@@ -4,6 +4,7 @@
 #include "mqttclient.h"
 #include "ATcommand.h"
 #include "semphr.h"
+#include "Lcd.h"
 
 extern QueueHandle_t G_xMessageQueueToMQTT;
 extern EventGroupHandle_t Event_Handle;
@@ -201,8 +202,11 @@ void DHT11_MQTT_Task(void *para)
         {
             sprintf(D_Data.data_of_sensor, "\"temperature\":\"%d\",\"humidity\":\"%d\",", D_Data.Temp, D_Data.Humid);
             xQueueSend(G_xMessageQueueToMQTT, &D_Data.data_of_sensor, NULL);
-            printf("send DTH11 data successfully\r\n");
-            xEventGroupSetBits(Event_Handle, PING_MODE1);//set up event group bit 
+            //printf("send DTH11 data successfully\r\n");
+            xEventGroupSetBits(Event_Handle, PING_MODE1);//set up event group bit
+            LCD_ShowIntNum(72,20,D_Data.Temp,2,BLACK,WHITE,12);
+            LCD_ShowIntNum(72,32,D_Data.Humid,2,BLACK,WHITE,12);
+            memset(D_Data.data_of_sensor, 0, sizeof(D_Data.data_of_sensor));
             xSemaphoreGive(G_xTaskMutex);
             vTaskDelay(2000);
         }

@@ -20,6 +20,7 @@ void LCD_ShowChar(u16 x, u16 y, u8 num, u16 fontcolor, u16 backgroundcolor, u8 s
 void LCD_ShowIntNum(u16 x, u16 y, u16 num, u8 len, u16 fontcolor, u16 backgroundcolor, u8 sizey);
 void LCD_ShowFloatNum1(u16 x, u16 y, float num, u8 len, u16 fontcolor, u16 backgroundcolor, u8 sizey);
 void LCD_ShowPicture(u16 x, u16 y, u16 length, u16 width, const u8 pic[]);
+void LCD_ShowString(u16 x, u16 y, const char *p, u16 fontcolor, u16 backgroundcolor, u8 sizey, u8 mode);
 
 void LCD_ShowChinese(u16 x,u16 y,u8 *s,u16 fontcolor,u16 backgroundcolor,u8 sizey,u8 mode);//显示汉字串
 void LCD_ShowChinese12x12(u16 x,u16 y,u8 *s,u16 fc,u16 bc,u8 sizey,u8 mode);//显示单个12x12汉字

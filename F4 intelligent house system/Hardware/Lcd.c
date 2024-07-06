@@ -247,7 +247,7 @@ void LCD_ShowFloatNum1(u16 x, u16 y, float num, u8 len, u16 fontcolor, u16 backg
 				sizey    Font size
 	Return：  	None
 ******************************************************************************/
-void LCD_ShowString(u16 x, u16 y, const u8 *p, u16 fontcolor, u16 backgroundcolor, u8 sizey, u8 mode)
+void LCD_ShowString(u16 x, u16 y, const char *p, u16 fontcolor, u16 backgroundcolor, u8 sizey, u8 mode)
 {
 	while (*p != '\0')
 	{
@@ -256,7 +256,6 @@ void LCD_ShowString(u16 x, u16 y, const u8 *p, u16 fontcolor, u16 backgroundcolo
 		p++;
 	}
 }
-
 /******************************************************************************
 	Function：	show  Chinese character
 	Parameter： x,y      	Coordinate
@@ -550,10 +549,12 @@ void LCD_ShowPicture(u16 x, u16 y, u16 length, u16 width, const u8 pic[])
 
 void LCD_Test(void)
 {
+	float t;
+	t+=0.11;//change it to global value 
 	LCD_ShowString(24, 30, "LCD_W:", RED, WHITE, 16, 0);
 	LCD_ShowIntNum(72, 30, LCD_W, 3, RED, WHITE, 16);
 	LCD_ShowString(24, 50, "LCD_H:", BLUE, WHITE, 16, 0);
 	LCD_ShowIntNum(72, 50, LCD_H, 3, RED, WHITE, 16);
-	LCD_ShowFloatNum1(20, 80, 1.22, 4, RED, WHITE, 16);
+	LCD_ShowFloatNum1(20, 80, t, 4, RED, WHITE, 16);
 	LCD_ShowPicture(65, 80, 40, 40, gImage_1);
 }

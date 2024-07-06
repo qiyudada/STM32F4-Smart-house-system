@@ -6,6 +6,7 @@
 #include "usart.h"
 #include "tim.h"
 #include "semphr.h"
+#include "Lcd.h"
 
 #define LIGHT_SENSOR_ADC_TIMEOUT 500
 

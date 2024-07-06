@@ -30,7 +30,6 @@ static void MQTT_Platform(void *para)
     /*send the message to MQTT servicer*/
     printf("enter MQTT_Platform successfully\r\n");
     char data_buffer[256] = {0}; // data buffer Initialization
-
     msg.payload = data_buffer;
     msg.qos = QOS0;
 
@@ -38,8 +37,8 @@ static void MQTT_Platform(void *para)
     {
         // waitting for ping message
         xEventGroupWaitBits((EventGroupHandle_t)Event_Handle,
-                            (EventBits_t)PING_MODE1 | PING_MODE2,//add event signal in here
-                            (BaseType_t)pdTRUE,//clear the signal when complete once upload 
+                            (EventBits_t)PING_MODE1 | PING_MODE2, // add event signal in here
+                            (BaseType_t)pdTRUE,                   // clear the signal when complete once upload
                             (BaseType_t)pdTRUE,
                             (TickType_t)portMAX_DELAY);
         if (xQueueReceive(G_xMessageQueueToMQTT, data_buffer + strlen(data_buffer), 10))
@@ -48,10 +47,11 @@ static void MQTT_Platform(void *para)
             {
             }
             msg.payloadlen = strlen(msg.payload);
-            mqtt_publish(client, "mcu_test", &msg);//publish the message to mqtt server
+            mqtt_publish(client, "mcu_test", &msg);      // publish the message to mqtt server
+           // LCD_ShowString(0,0,data_buffer,BLACK,WHITE,12,0);
+            memset(data_buffer, 0, sizeof(data_buffer)); // reset data buffer
             xSemaphoreGive(G_xTaskMutex);
-            printf("send data to MQTT server successfully\r\n");
-            memset(data_buffer, 0, sizeof(data_buffer));//reset data buffer
+            // printf("send data to MQTT server successfully\r\n");
             vTaskDelay(1000);
         }
         else
@@ -139,7 +139,7 @@ void MQTT_Client_Init(void *Param)
 void MQTT_Client_Task(void *Param)
 {
     printf("enter MQTTClientTask successfully\r\n");
-    taskENTER_CRITICAL();//enter critical area to prevent the task from being interrupted
+    taskENTER_CRITICAL(); // enter critical area to prevent the task from being interrupted
     /*create Eventgroup task*/
     Event_Handle = xEventGroupCreate();
     xEventGroupSetBits(Event_Handle, WIFI_CONECT);
@@ -153,9 +153,9 @@ void MQTT_Client_Task(void *Param)
 
     /* create task */
     xTaskCreate(LightSensor_MQTT_Task, "LightSensor_MQTT_Task", 128, NULL, osPriorityAboveNormal7, &G_xLightSensor_Task_Handler);
-    xTaskCreate(DHT11_MQTT_Task, "DTH11_Task", 128, NULL, osPriorityHigh, &G_xDHT11_Task_Handler);//last create task(must running dth11 task firstly)
+    xTaskCreate(DHT11_MQTT_Task, "DTH11_Task", 128, NULL, osPriorityHigh, &G_xDHT11_Task_Handler); // last create task(must running dth11 task firstly)
 
-    if (G_xMQTT_Client_Task != NULL)//delete create task
+    if (G_xMQTT_Client_Task != NULL) // delete create task
     {
         vTaskDelete(G_xMQTT_Client_Task);
         G_xMQTT_Client_Task = NULL;

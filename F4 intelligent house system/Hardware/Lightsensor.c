@@ -78,10 +78,12 @@ void LightSensor_MQTT_Task(void *para)
         if (!LightSensor_Read(&L_Data.Sample))
         {
             L_Data.Volt = L_Data.Sample * 330 / 4096;
-            sprintf(L_Data.data_sensor, "\"Light\":%d,\"Volt\":\"%d.%d%d\",", L_Data.Sample, L_Data.Volt / 100, (L_Data.Volt / 10) % 10, L_Data.Volt % 10);
+            sprintf(L_Data.data_sensor, "\"Light\":\"%d\",\"Volt\":\"%d.%d%d\",", L_Data.Sample, L_Data.Volt / 100, (L_Data.Volt / 10) % 10, L_Data.Volt % 10);
             xQueueSend(G_xMessageQueueToMQTT, &L_Data.data_sensor, NULL);
-            printf("send Lightsensor data successfully\r\n");
+            // printf("send Lightsensor data successfully\r\n");
             xEventGroupSetBits(Event_Handle, PING_MODE2);
+            LCD_ShowIntNum(72,44,L_Data.Sample,4,BLACK,WHITE,12);
+            memset(L_Data.data_sensor, 0, sizeof(L_Data));
             xSemaphoreGive(G_xTaskMutex);
             vTaskDelay(2000);
         }

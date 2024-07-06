@@ -82,3 +82,6 @@ f4 intelligent house system\lightsensor.o: ../Core/Inc/main.h
 f4 intelligent house system\lightsensor.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
 f4 intelligent house system\lightsensor.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h
 f4 intelligent house system\lightsensor.o: ../Core/Inc/usart.h
+f4 intelligent house system\lightsensor.o: ..\Hardware\Lcd.h
+f4 intelligent house system\lightsensor.o: ..\Hardware\lcd_init.h
+f4 intelligent house system\lightsensor.o: ../Core/Inc/spi.h

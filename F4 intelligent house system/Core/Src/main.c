@@ -113,16 +113,20 @@ int main(void)
   
 	ATInit();
 	printf("Hello World!\r\n");
+  LCD_ShowString(0,0, "Smarthouse data", BLACK, WHITE,16 , 0);
+  LCD_ShowString(0,20, "Tempature:    ^c", BLACK, WHITE, 12, 0);
+  LCD_ShowString(0,32, "Humidity:     %", BLACK, WHITE, 12, 0);
+  LCD_ShowString(0,44, "Light:          Lux", BLACK, WHITE, 12, 0);
   /* USER CODE END 2 */
 
   /* Init scheduler */
   osKernelInitialize();
 
   /* Call init function for freertos objects (in cmsis_os2.c) */
-  //MX_FREERTOS_Init();
+  MX_FREERTOS_Init();
 
   /* Start scheduler */
-  //osKernelStart();
+  osKernelStart();
 
   /* We should never get here as control is now taken by the scheduler */
 
@@ -130,9 +134,8 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    LCD_Test();
     /* USER CODE END WHILE */
-
+		
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

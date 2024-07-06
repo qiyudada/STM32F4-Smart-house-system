@@ -78,13 +78,13 @@ f4 intelligent house system\main.o: ../Core/Inc/adc.h
 f4 intelligent house system\main.o: ../Core/Inc/main.h
 f4 intelligent house system\main.o: ../Core/Inc/usart.h
 f4 intelligent house system\main.o: ../Core/Inc/tim.h
+f4 intelligent house system\main.o: ../Hardware/Lcd.h
+f4 intelligent house system\main.o: ../Hardware/lcd_init.h
+f4 intelligent house system\main.o: ../Core/Inc/spi.h
 f4 intelligent house system\main.o: ../Hardware/Dth11.h
 f4 intelligent house system\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
 f4 intelligent house system\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h
 f4 intelligent house system\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h
 f4 intelligent house system\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
 f4 intelligent house system\main.o: ../Core/Inc/dma.h
-f4 intelligent house system\main.o: ../Core/Inc/spi.h
 f4 intelligent house system\main.o: ../Core/Inc/gpio.h
-f4 intelligent house system\main.o: ../Hardware/Lcd.h
-f4 intelligent house system\main.o: ../Hardware/lcd_init.h

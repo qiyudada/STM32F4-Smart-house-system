@@ -78,6 +78,9 @@ f4 intelligent house system\stm32f4xx_it.o: ../Core/Inc/adc.h
 f4 intelligent house system\stm32f4xx_it.o: ../Core/Inc/main.h
 f4 intelligent house system\stm32f4xx_it.o: ../Core/Inc/usart.h
 f4 intelligent house system\stm32f4xx_it.o: ../Core/Inc/tim.h
+f4 intelligent house system\stm32f4xx_it.o: ../Hardware/Lcd.h
+f4 intelligent house system\stm32f4xx_it.o: ../Hardware/lcd_init.h
+f4 intelligent house system\stm32f4xx_it.o: ../Core/Inc/spi.h
 f4 intelligent house system\stm32f4xx_it.o: ../Hardware/Dth11.h
 f4 intelligent house system\stm32f4xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
 f4 intelligent house system\stm32f4xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h

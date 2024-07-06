@@ -82,6 +82,9 @@ f4 intelligent house system\mqtt_task.o: ../Core/Inc/adc.h
 f4 intelligent house system\mqtt_task.o: ../Core/Inc/main.h
 f4 intelligent house system\mqtt_task.o: ../Core/Inc/usart.h
 f4 intelligent house system\mqtt_task.o: ../Core/Inc/tim.h
+f4 intelligent house system\mqtt_task.o: ../Hardware/Lcd.h
+f4 intelligent house system\mqtt_task.o: ../Hardware/lcd_init.h
+f4 intelligent house system\mqtt_task.o: ../Core/Inc/spi.h
 f4 intelligent house system\mqtt_task.o: ../Hardware/Dth11.h
 f4 intelligent house system\mqtt_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
 f4 intelligent house system\mqtt_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h

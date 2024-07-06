@@ -166,7 +166,7 @@ void HAL_SPI_MspDeInit(SPI_HandleTypeDef* spiHandle)
 uint8_t SPI_WriteByte_DMA(uint8_t* TxData,uint16_t size)
 {
   uint8_t mes;
-	mes=HAL_SPI_Transmit_DMA(&hspi1,TxData,size);
+	mes=HAL_SPI_Transmit_DMA(&hspi1,TxData,size); 
   Delay_us(1);
   HAL_SPI_Abort(&hspi1);//clear the signal bit HAL_BUSY
 	return mes;

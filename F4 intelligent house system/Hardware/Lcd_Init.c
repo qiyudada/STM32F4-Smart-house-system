@@ -112,7 +112,7 @@ void LCD_Init(void)
     Delay_ms(100);
     LCD_RES_Set();
     Delay_ms(100);
-
+	
     LCD_BLK_Set(); // 打开背光
     Delay_ms(50);
 

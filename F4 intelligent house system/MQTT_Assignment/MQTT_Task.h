@@ -12,6 +12,7 @@
 #include "Dth11.h"
 #include "Lightsensor.h"
 #include "ATcommand.h"
+#include "Lcd.h"
 
 #include "queue.h"
 #include "semphr.h" 
