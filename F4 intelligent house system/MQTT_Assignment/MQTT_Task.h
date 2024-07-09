@@ -8,6 +8,7 @@
 #include "cmsis_os2.h"
 #include "task.h"
 #include "mqttclient.h"
+#include "platform_mutex.h"
 
 #include "Dth11.h"
 #include "Lightsensor.h"

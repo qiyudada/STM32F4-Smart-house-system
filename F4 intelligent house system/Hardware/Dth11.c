@@ -9,7 +9,7 @@
 extern QueueHandle_t G_xMessageQueueToMQTT;
 extern EventGroupHandle_t Event_Handle;
 extern TaskHandle_t G_xDHT11_Task_Handler;
-extern SemaphoreHandle_t G_xTaskMutex;
+extern platform_mutex_t G_xTaskMutex;
 extern int WIFI_CONECT;
 extern int PING_MODE1;
 void DHT11_PinCfgAsOutput(void)
@@ -173,7 +173,7 @@ void DHT11_Test(void)
 void DHT11_MQTT_Task(void *para)
 {
 
-    xSemaphoreTake(G_xTaskMutex, portMAX_DELAY);//waitting for the mutex,prevent other task from running
+    platform_mutex_lock(&G_xTaskMutex);//waitting for the mutex,prevent other task from running
     struct DTH11_Data D_Data;
     int err;
 
@@ -195,7 +195,7 @@ void DHT11_MQTT_Task(void *para)
         {
             DHT11_PinCfgAsInput();
             printf("\n\rdht11 read err!\n\r");
-            xSemaphoreGive(G_xTaskMutex);
+            platform_mutex_unlock(&G_xTaskMutex);
             vTaskDelay(2000);
         }
         else
@@ -207,7 +207,7 @@ void DHT11_MQTT_Task(void *para)
             LCD_ShowIntNum(72,20,D_Data.Temp,2,BLACK,WHITE,12);
             LCD_ShowIntNum(72,32,D_Data.Humid,2,BLACK,WHITE,12);
             memset(D_Data.data_of_sensor, 0, sizeof(D_Data.data_of_sensor));
-            xSemaphoreGive(G_xTaskMutex);
+            platform_mutex_unlock(&G_xTaskMutex);
             vTaskDelay(2000);
         }
     }

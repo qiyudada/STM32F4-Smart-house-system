@@ -7,6 +7,7 @@
 #include "tim.h"
 #include "semphr.h"
 #include "Lcd.h"
+#include <platform_mutex.h>
 
 #define LIGHT_SENSOR_ADC_TIMEOUT 500
 

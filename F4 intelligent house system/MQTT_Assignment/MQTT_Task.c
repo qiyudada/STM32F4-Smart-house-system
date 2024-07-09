@@ -7,7 +7,7 @@ TaskHandle_t G_xDHT11_Task_Handler;
 TaskHandle_t G_xLightSensor_Task_Handler;
 extern TaskHandle_t G_xMQTTClientInitHandle;
 /*Semaphore handle*/
-SemaphoreHandle_t G_xTaskMutex;
+platform_mutex_t G_xTaskMutex;
 /*Eventgroup handle*/
 EventGroupHandle_t Event_Handle = NULL;
 const int WIFI_CONECT = (0x01 << 0);
@@ -26,7 +26,7 @@ receive data from Model and send to MQTT*/
 static void MQTT_Platform(void *para)
 {
 
-    xSemaphoreTake(G_xTaskMutex, portMAX_DELAY);
+    platform_mutex_lock(&G_xTaskMutex);
     /*send the message to MQTT servicer*/
     printf("enter MQTT_Platform successfully\r\n");
     char data_buffer[256] = {0}; // data buffer Initialization
@@ -50,14 +50,14 @@ static void MQTT_Platform(void *para)
             mqtt_publish(client, "mcu_test", &msg);      // publish the message to mqtt server
            // LCD_ShowString(0,0,data_buffer,BLACK,WHITE,12,0);
             memset(data_buffer, 0, sizeof(data_buffer)); // reset data buffer
-            xSemaphoreGive(G_xTaskMutex);
+            platform_mutex_unlock(&G_xTaskMutex);
             // printf("send data to MQTT server successfully\r\n");
             vTaskDelay(1000);
         }
         else
         {
             printf("No data received\r\n");
-            xSemaphoreGive(G_xTaskMutex);
+            platform_mutex_unlock(&G_xTaskMutex);
             vTaskDelay(1000);
         }
     }
@@ -77,7 +77,7 @@ void MQTT_Client_Init(void *Param)
 {
 
     int err;
-
+    
     memset(&msg, 0, sizeof(msg));
 
     mqtt_log_init();
@@ -144,7 +144,8 @@ void MQTT_Client_Task(void *Param)
     Event_Handle = xEventGroupCreate();
     xEventGroupSetBits(Event_Handle, WIFI_CONECT);
     /*create Semaphore*/
-    G_xTaskMutex = xSemaphoreCreateMutex();
+    //G_xTaskMutex = xSemaphoreCreateMutex();
+    platform_mutex_init(&G_xTaskMutex);
     /*create Message Queue*/
     G_xMessageQueueToMQTT = xQueueCreate(MESSAGE_DATA_TX_NUM, MESSAGE_DATA_TX_LEN);
 

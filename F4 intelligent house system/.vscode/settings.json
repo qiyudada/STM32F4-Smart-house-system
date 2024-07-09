@@ -18,7 +18,10 @@
         "spi.h": "c",
         "lcd.h": "c",
         "dma.h": "c",
-        "mydma.h": "c"
+        "mydma.h": "c",
+        "platform_mutex.h": "c",
+        "uart3_irq.h": "c",
+        "platform.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled",
     "workbench.colorTheme": "Default Dark Modern",

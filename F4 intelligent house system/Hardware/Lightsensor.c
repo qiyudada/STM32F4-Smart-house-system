@@ -4,7 +4,7 @@ static ADC_HandleTypeDef *g_HADC_LightSensor = &hadc1;
 extern EventGroupHandle_t Event_Handle;
 extern QueueHandle_t G_xMessageQueueToMQTT;
 extern TaskHandle_t G_xLightSensor_Task_Handler;
-extern SemaphoreHandle_t G_xTaskMutex;
+extern platform_mutex_t G_xTaskMutex;
 extern int WIFI_CONECT;
 extern int PING_MODE2;
 /*function: LightSensor_Init
@@ -62,7 +62,7 @@ void LightSensor_Test(void)
 void LightSensor_MQTT_Task(void *para)
 {
 
-    xSemaphoreTake(G_xTaskMutex, portMAX_DELAY);
+    platform_mutex_lock(&G_xTaskMutex);
     struct Light_Data L_Data;
 
     LightSensor_Init();
@@ -84,13 +84,13 @@ void LightSensor_MQTT_Task(void *para)
             xEventGroupSetBits(Event_Handle, PING_MODE2);
             LCD_ShowIntNum(72,44,L_Data.Sample,4,BLACK,WHITE,12);
             memset(L_Data.data_sensor, 0, sizeof(L_Data));
-            xSemaphoreGive(G_xTaskMutex);
+            platform_mutex_unlock(&G_xTaskMutex);
             vTaskDelay(2000);
         }
         else
         {
             printf("Light Sensor Read Fail\r\n");
-            xSemaphoreGive(G_xTaskMutex);
+            platform_mutex_unlock(&G_xTaskMutex);
             vTaskDelay(2000);
         }
     }
