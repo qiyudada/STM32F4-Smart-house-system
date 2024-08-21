@@ -1,5 +1,6 @@
 #include "Lightsensor.h"
 
+/*A0->GPIOA_PIN_1*/
 static ADC_HandleTypeDef *g_HADC_LightSensor = &hadc1;
 extern EventGroupHandle_t Event_Handle;
 extern QueueHandle_t G_xMessageQueueToMQTT;

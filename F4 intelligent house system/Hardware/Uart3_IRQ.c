@@ -33,7 +33,7 @@ void USART3_Write(char *buf,int len)
 	int i=0;
 	while(i<len)
 	{
-		while((huart3.Instance->SR & USART_SR_TXE)==0); //
+		while((huart3.Instance->SR & USART_SR_TXE)==0); 
 		huart3.Instance->DR = buf[i];
 		i++;
 	}

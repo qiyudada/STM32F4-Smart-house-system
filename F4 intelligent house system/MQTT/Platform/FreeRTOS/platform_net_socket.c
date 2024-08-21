@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <portmacro.h>
 
-#define SSID "Praymerry loopy"
+#define SSID "PRAYMERRY"
 #define PASSWORD "12345678C"
 
 int platform_net_socket_connect(const char *host, const char *port, int proto)

@@ -2,6 +2,14 @@
 #include "lcdfont.h"
 #include "pic.h"
 
+/*SCL->PA5
+ *SDA->PA7
+ *RES->PC4
+ *DC->PB0
+ *CS->PA4
+ *BL->PC5
+ */
+
 /******************************************************************************
 	Function：	Fill color with demanded area
 	Parameter： xsta,ysta    Start coordinate

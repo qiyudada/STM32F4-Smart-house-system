@@ -6,6 +6,8 @@
 #include "semphr.h"
 #include "Lcd.h"
 
+/*DATA->GPIOA_Pin_12*/
+
 extern QueueHandle_t G_xMessageQueueToMQTT;
 extern EventGroupHandle_t Event_Handle;
 extern TaskHandle_t G_xDHT11_Task_Handler;
